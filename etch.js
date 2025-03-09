@@ -4,6 +4,9 @@
 // After input, the old grid is removed and replaced with one of the inputted size
 
 let gridSize = 16;
+document.addEventListener("DOMContentLoaded", () => {
+    createGrid(gridSize);
+});
 const btn = document.querySelector("button");
 btn.addEventListener("click", () => {
     const parent = document.querySelector("#grid")
@@ -24,6 +27,9 @@ const gridItem = document.createElement("div");
 gridItem.classList.add("gridItem");
 
 function createGrid(dimension) {
+    if (gridSize > 100) {
+        return alert("Too large. Enter grid size up to 100");
+    }
     let i = 1;
     while (i <= dimension) {
         grid.appendChild(row.cloneNode(true));
