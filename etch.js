@@ -18,6 +18,8 @@ btn.addEventListener("click", () => {
 });
 
 //Assign contents for the grid, rows, and individual tiles. Iterate 16 rows and 16 tiles for each.
+// Set limit on squares to 100
+// Color tiles randomly when hovered
 const grid = document.querySelector("#grid");
 
 const row = document.createElement("div");
@@ -47,9 +49,10 @@ function createGrid(dimension) {
 
     grid.addEventListener("mouseover", (e) => {
         if (e.target.classList.contains("gridItem")) {
-            e.target.style.backgroundColor = "blue";
+            const r = Math.floor(Math.random() * 255);
+            const g = Math.floor(Math.random() * 255);
+            const b = Math.floor(Math.random() * 255);
+            e.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
         }
     });
 }
-
-// Set limit on squares to 100
